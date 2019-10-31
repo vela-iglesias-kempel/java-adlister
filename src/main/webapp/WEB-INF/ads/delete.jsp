@@ -20,23 +20,27 @@
 
     <h1>${sessionScope.user.username}, are you sure you want to delete this ad?</h1>
     <c:forEach var="ad" items="${ads}">
-            <form action="/ads/delete" method="post">
-                <div class="form-group">
-                    <input id="userid" name="userid" class="form-control" type="hidden" value="<c:out value="${ad.userId}"/>">
-                </div>
-                <div class="form-group">
-                    <input id="id" name="id" class="form-control" type="hidden" value="<c:out value="${ad.id}"/>">
-                </div>
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input id="title" name="title" class="form-control" type="text" value="<c:out value="${ad.title}"/>">
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input id="description" name="description" class="form-control" type="text" value="<c:out value="${ad.description}"/>">
-                </div>
-                <button>Confirm Deletion</button>
-            </form>
+        <form action="/ads/delete?ads=${ad.id}" method="post">
+            <c:out value="${ad.userId}"/>
+<%--            <c:out value="${ad.id}"/>--%>
+            <c:out value="${ad.title}"/>
+            <c:out value="${ad.description}"/>
+<%--            <div class="form-group">--%>
+<%--                <input id="userid" name="userid" class="form-control" type="hidden" value="<c:out value="${ad.userId}"/>">--%>
+<%--            </div>--%>
+<%--            <div class="form-group">--%>
+<%--                <input id="id" name="id" class="form-control" type="hidden" value="<c:out value="${ad.id}"/>">--%>
+<%--            </div>--%>
+<%--            <div class="form-group">--%>
+<%--                <label for="title">Title</label>--%>
+<%--                <input id="title" name="title" class="form-control" type="text" value="<c:out value="${ad.title}"/>">--%>
+<%--            </div>--%>
+<%--            <div class="form-group">--%>
+<%--                <label for="description">Description</label>--%>
+<%--                <input id="description" name="description" class="form-control" type="text" value="<c:out value="${ad.description}"/>">--%>
+<%--            </div>--%>
+            <button>Confirm Deletion</button>
+        </form>
     </c:forEach>
 
 </div>

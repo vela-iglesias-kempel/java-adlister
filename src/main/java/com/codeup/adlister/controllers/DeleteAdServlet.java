@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.DeleteAdServlet", urlPatterns = "/ads/delete")
 public class DeleteAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setAttribute("idAd", request.getParameter("idAd"));
+        //if user is NOT logged in, they cannot view this page
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;

@@ -35,18 +35,18 @@ public class UpdateAdServlet extends HttpServlet {
             request.setAttribute("description", description);
             request.setAttribute("category", category);
 
+        Ad ad = new Ad(
+                    title,
+                    description,
+                    category
+            );
+        DaoFactory.getAdsDao().all();
 
             request.getRequestDispatcher("/WEB-INF/ads/update.jsp").forward(request, response);
             response.sendRedirect("/ads/update");
             return;
         }
-        Ad ad = new Ad(
-                title,
-                description,
-                category
-        );
 
-        DaoFactory.getAdsDao().update(ad);
         response.sendRedirect("/profile");
     }
 }
