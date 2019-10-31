@@ -28,7 +28,7 @@
 
     <h5>Ad ID: ${ad.id}</h5>
     <h5>Category: ${ad.category}</h5>
-        <h5>Posted By: ${user}</h5>
+        <h5>Posted By: ${postedBy}</h5>
 
     </div>
 
