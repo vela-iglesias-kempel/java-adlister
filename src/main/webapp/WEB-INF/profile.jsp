@@ -14,13 +14,14 @@
         <h2>Recently Posted Ads</h2>
         <br>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
+            <div class="col-md-6 ">
                 <p class="card-title"><strong>Title</strong>: ${ad.title}</p>
                 <p><strong>Description</strong>: ${ad.description}</p>
                 <p><strong>Category</strong>: ${ad.category}</p>
+                <button>Modify</button>
+                <button>Delete</button>
             </div>
         </c:forEach>
     </div>
-
 </body>
 </html>
