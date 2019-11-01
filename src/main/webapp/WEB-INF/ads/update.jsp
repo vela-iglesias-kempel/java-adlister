@@ -30,34 +30,8 @@
             <label for="update-description">Description</label>
             <textarea id="update-description" name="description" class="form-control"  type="text">${ad.description}</textarea>
         </div>
-        <input type="submit" class="btn btn-block btn-primary">
     </form>
-
-
-
-<%--    <c:forEach var="ad" items="${ads}">--%>
-<%--            <form action="/ads/update" method="post">--%>
-<%--                <div class="form-group">--%>
-<%--                    <input id="userId" name="userId" class="form-control" type="hidden" value="<c:out value="${ad.userId}"/>">--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <input id="adId" name="adId" class="form-control" type="hidden" value="<c:out value="${ad.id}"/>">--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="title">Title</label>--%>
-<%--                    <input id="title" name="title" class="form-control" type="text" value="<c:out value="${ad.title}"/>">--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="description">Description</label>--%>
-<%--                    <input id="description" name="description" class="form-control" type="text" value="<c:out value="${ad.description}"/>">--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="category">Category</label>--%>
-<%--                    <input id="category" name="category" class="form-control" type="text" value="<c:out value="${ad.category}"/>">--%>
-<%--                </div>--%>
-<%--                <input type="submit" class="btn btn-block btn-primary">--%>
-<%--            </form>--%>
-<%--    </c:forEach>--%>
+    <a href="/profile"><input type="submit" class="btn btn-block btn-primary"></a>
 
 </div>
 </body>

@@ -40,24 +40,22 @@ public class UpdateAdServlet extends HttpServlet {
         String description = request.getParameter("description");
         String category = request.getParameter("category");
         String id = request.getParameter("id");
+        long longId = Long.parseLong(request.getParameter("id"));
+        User user = (User) request.getSession().getAttribute("user");
 
-        if (title.isEmpty() || description.isEmpty()) {
-            request.setAttribute("ads", DaoFactory.getAdsDao().all());
-            request.setAttribute("title", title);
-            request.setAttribute("description", description);
-            request.setAttribute("category", category);
+
 
             Ad ad = new Ad(
+                    longId,
+                    user.getId(),
                     title,
                     description,
                     category
             );
-            DaoFactory.getAdsDao().all();
+            DaoFactory.getAdsDao().update(ad);
 
             request.getRequestDispatcher("/WEB-INF/ads/update.jsp").forward(request, response);
-            response.sendRedirect("/ads/update");
-            return;
-        }
+
         response.sendRedirect("/profile");
     }
 }
