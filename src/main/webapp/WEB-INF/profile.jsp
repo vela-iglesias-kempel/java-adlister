@@ -20,8 +20,8 @@
                     <p class="card-title"><strong>Title</strong>: ${ad.title}</p>
                     <p><strong>Description</strong>: ${ad.description}</p>
                     <p><strong>Category</strong>: ${ad.category}</p>
-                    <button><a href="ads/update?ads=${ad.id}">Modify Ads</a></button>
-                    <button><a href="ads/delete?ads=${ad.id}">Delete Ads</a></button>
+                    <button><a href="/ads/update?id=${ad.id}">Edit</a></button>
+                    <button><a href="ads/delete">Delete</a></button>
                 </div>
             </c:forEach>
         </div>

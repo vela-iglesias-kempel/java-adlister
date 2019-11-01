@@ -24,7 +24,6 @@ public class Ad {
     }
 
     // for updates
-//    public Ad(String title, String description, long id)
     public Ad(String title, String description, String category) {
         this.title = title;
         this.description = description;
