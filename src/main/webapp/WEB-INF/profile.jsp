@@ -21,7 +21,7 @@
                     <p><strong>Description</strong>: ${ad.description}</p>
                     <p><strong>Category</strong>: ${ad.category}</p>
                     <button><a href="/ads/update?id=${ad.id}">Edit</a></button>
-                    <button><a href="ads/delete">Delete</a></button>
+                    <button><a href="/ads/delete?id=${ad.id}">Delete</a></button>
                 </div>
             </c:forEach>
         </div>
