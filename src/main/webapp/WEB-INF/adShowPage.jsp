@@ -23,15 +23,11 @@
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
         </div>
-
-
-    <h5>Ad ID: ${ad.id}</h5>
-    <h5>Category: ${ad.category}</h5>
-        <h5>Posted By: ${postedBy}</h5>
+        <h5>Ad ID: ${ad.id}</h5>
+        <h5>Category: ${ad.category}</h5>
+        <h5>Posted By: ${user}</h5>
+  <h5>Posted By: ${postedBy}</h5>
 
     </div>
-
-
-
 </body>
 </html>

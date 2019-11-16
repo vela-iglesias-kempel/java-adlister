@@ -16,9 +16,11 @@ public interface Ads {
 
     List<Ad> findAdByUserId(User user);
 
-
+    //update an ad
+    void update(Ad ad);
+    //delete an ad
+    void delete(long id);
+//    List<Ad> delete(long id);
 
     //do I come up with a new method in adds??
-
-
 }
