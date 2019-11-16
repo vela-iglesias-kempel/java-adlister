@@ -98,4 +98,24 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
+    public int updateEmail(String newEmail, long userId) {
+
+        try {
+            String updateQuery = "update users set email = ? where  id = ?";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, newEmail);
+            stmt.setLong(2, userId);
+            int row = stmt.executeUpdate();
+
+            // rows affected
+//            System.out.println(row);
+            return row;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error adding a product", e);
+        }
+    }
+
+
 }
+
