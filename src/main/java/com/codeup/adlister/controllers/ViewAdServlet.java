@@ -18,10 +18,7 @@ public class ViewAdServlet extends HttpServlet {
         String[] args = request.getQueryString().split("=");
         Long id = Long.parseLong(args[1]);
         request.setAttribute("ad", DaoFactory.getAdsDao().getAdById(id));
-
         request.setAttribute("postedBy", DaoFactory.getUsersDao().getUserNameByAdId(id));
-
-
         System.out.println(request.getAttribute("ad"));
         request.getRequestDispatcher("/WEB-INF/adShowPage.jsp").forward(request, response);
     }
