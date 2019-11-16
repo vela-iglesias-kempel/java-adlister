@@ -17,18 +17,20 @@
             <c:set var="user" scope="session" value="${user}"/>
             <c:choose>
 
-                <c:when test="${(user == null)}">
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
+                <c:when test="${(user != null)}">
+                    <li><a href="/ads/create">Create Ad</a></li>
+                    <li><a href="/updateSettings">Update Settings</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </c:when>
 
                 <c:otherwise>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
                 </c:otherwise>
 
             </c:choose>
 
-
+            <li><a href="/ads">List Ads</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
