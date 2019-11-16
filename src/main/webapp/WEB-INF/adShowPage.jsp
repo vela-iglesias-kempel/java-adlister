@@ -17,6 +17,7 @@
     <title>${ad.title}</title>
 </head>
 <body>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <div class="col-md-6">
                 <h2>${ad.title}</h2>
@@ -25,6 +26,8 @@
         <h5>Ad ID: ${ad.id}</h5>
         <h5>Category: ${ad.category}</h5>
         <h5>Posted By: ${user}</h5>
+  <h5>Posted By: ${postedBy}</h5>
+
     </div>
 </body>
 </html>

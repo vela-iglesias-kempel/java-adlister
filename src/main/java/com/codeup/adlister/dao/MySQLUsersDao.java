@@ -24,6 +24,7 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUsername(String username) {
+
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
@@ -36,18 +37,25 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+        MySQLUsersDao adConnection = new MySQLUsersDao(new Config());
+        User duplicateUser = adConnection.findByUsername(user.getUsername());
+        if (duplicateUser != null) {
+            return -1L;
+
+        } else {
+            String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+            try {
+                PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                stmt.setString(1, user.getUsername());
+                stmt.setString(2, user.getEmail());
+                stmt.setString(3, user.getPassword());
+                stmt.executeUpdate();
+                ResultSet rs = stmt.getGeneratedKeys();
+                rs.next();
+                return rs.getLong(1);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error creating new user", e);
+            }
         }
     }
 
@@ -90,4 +98,24 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
+    public int updateEmail(String newEmail, long userId) {
+
+        try {
+            String updateQuery = "update users set email = ? where  id = ?";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, newEmail);
+            stmt.setLong(2, userId);
+            int row = stmt.executeUpdate();
+
+            // rows affected
+//            System.out.println(row);
+            return row;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error adding a product", e);
+        }
+    }
+
+
 }
+

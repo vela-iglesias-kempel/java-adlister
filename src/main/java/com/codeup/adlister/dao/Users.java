@@ -6,4 +6,5 @@ public interface Users {
     User findByUsername(String username);
     Long insert(User user);
     String getUserNameByAdId(Long AdId);
+    int updateEmail(String newEmail, long userId);
 }
