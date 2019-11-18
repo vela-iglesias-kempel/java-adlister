@@ -30,8 +30,9 @@
             <label for="update-description">Description</label>
             <textarea id="update-description" name="description" class="form-control"  type="text">${ad.description}</textarea>
         </div>
+        <a href="/profile"><input type="submit" class="btn btn-block btn-primary"></a>
     </form>
-    <a href="/profile"><input type="submit" class="btn btn-block btn-primary"></a>
+
 
 </div>
 </body>

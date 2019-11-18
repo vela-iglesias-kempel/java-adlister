@@ -7,4 +7,5 @@ public interface Users {
     Long insert(User user);
     String getUserNameByAdId(Long AdId);
     int updateEmail(String newEmail, long userId);
+    int updatePassword(String newPassword, long userId);
 }
